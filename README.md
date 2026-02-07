@@ -1,1 +1,1 @@
-# Rock_Paper_Scissors
+This is a game of rock paper scissors that is played in the console of the webpage.

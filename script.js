@@ -35,51 +35,25 @@ function playGame(){
     function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.toLowerCase();
 
-        // Cases if human chooses rock
-        if(humanChoice === "rock" && computerChoice === "rock"){
-            console.log("It's a tie! You both chose rock.");
-            return;
-        }
-        else if(humanChoice === "rock" && computerChoice === "paper"){
-            console.log("You lose! Paper beats rock.");
-            computerScore++;
-            return;
-        }
-        else if(humanChoice === "rock" && computerChoice === "scissors"){
-            console.log("You win! Rock beats scissors.");
-            humanScore++;
-            return;
+        // Case if both have same choice
+        if(humanChoice === computerChoice){
+            console.log("It's a tie! You both chose " + humanChoice + ".");
         }
 
-        // Cases if human chooses paper
-        else if(humanChoice === "paper" && computerChoice === "paper"){
-            console.log("It's a tie! You both chose paper.");
-            return;
-        }
-        else if(humanChoice === "paper" && computerChoice === "rock"){
-            console.log("You win! Paper beats rock.");
-            humanScore++;
-            return;
-        }
-        else if(humanChoice === "paper" && computerChoice === "scissors"){
-            console.log("You lose! Scissors beats paper.");
-            computerScore++;
-            return;
+        // Cases if human beats computer
+        else if(humanChoice === "rock" && computerChoice === "scissors" ||
+                humanChoice === "scissors" && computerChoice === "paper" ||
+                humanChoice === "paper" && computerChoice === "rock"){
+
+                console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+                humanScore++;
+
         }
 
-        // Cases if human chooses scissors
-        else if(humanChoice === "scissors" && computerChoice === "rock"){
-            console.log("You lose! Rock beats scissors.");
+        // Case if computer beats human
+        else{
+            console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
             computerScore++;
-            return;
-        }
-        else if(humanChoice === "scissors" && computerChoice === "paper"){
-            console.log("You win! Scissors beats paper.");
-            humanScore++;
-            return;
-        }
-        else if(humanChoice === "scissors" && computerChoice === "scissors"){
-            console.log("It's a tie! You both chose paper.");
         }
     }
 
