@@ -15,7 +15,7 @@ function getComputerChoice(){
     }
 }
 
-
+// prompts the user to enter 'rock', 'paper', or 'scissors'
 function getHumanChoice(){
     let choice = prompt("Please enter either 'rock', 'paper', or 'scissors'.");
     return choice;
@@ -23,12 +23,15 @@ function getHumanChoice(){
 
 
 
-
+// plays five rounds of rock paper scissors, 
+// printing out the final winner after the last round
 function playGame(){
 
     let humanScore = 0;
     let computerScore = 0;
 
+    // gets human choice and computer choice and
+    // compares them to get the winner of that round
     function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.toLowerCase();
 
@@ -81,13 +84,16 @@ function playGame(){
     }
 
 
-
+    // loop that executes playRound 5 times 
+    // to play 5 rounds of rock paper scissors
     for(let i = 0; i < 5; i++){
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
 
+    // compares final scores to determine
+    // the winner of the game
     if(humanScore > computerScore){
         console.log("Human wins with a score of " + humanScore + ":" + computerScore + "!");
     }
