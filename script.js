@@ -14,3 +14,15 @@ function getComputerChoice(){
             return "scissors";
     }
 }
+
+console.log("Computer choice is: " + getComputerChoice());
+
+function getHumanChoice(){
+    let choice = prompt("Please enter either 'rock', 'paper', or 'scissors'.");
+    return choice;
+}
+
+console.log("Human choice is: " + getHumanChoice());
+
+let humanScore = 0;
+let computerScore = 0;
