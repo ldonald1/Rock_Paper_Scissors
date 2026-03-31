@@ -6,4 +6,5 @@ The skills demonstrated in this project include:
 - functions
 - switch statements
 - if/else conditionals
+- DOM manipulation
 - event listeners
