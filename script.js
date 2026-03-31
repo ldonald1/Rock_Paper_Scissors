@@ -15,36 +15,6 @@ function getComputerChoice(){
     }
 }
 
-// prompts the user to enter 'rock', 'paper', or 'scissors'
-function getHumanChoice(){
-    let choice = prompt("Please enter either 'rock', 'paper', or 'scissors'.");
-    return choice;
-}
-
-// plays five rounds of rock paper scissors, 
-// printing out the final winner after the last round
-function playGame(){
-
-    
-
-    // gets human choice and computer choice and
-    // compares them to get the winner of that round
-    
-
-
-    // compares final scores to determine
-    // the winner of the game
-    if(humanScore > computerScore){
-        console.log("Human wins with a score of " + humanScore + ":" + computerScore + "!");
-    }
-    else if(computerScore > humanScore){
-        console.log("Computer wins with a score of " + computerScore + ":" + humanScore + "!");
-    }
-    else{
-        console.log("It's a tie! The final score is " + humanScore + ":" + computerScore + "!");
-    }
-
-}
 
 function playRound(humanChoice, computerChoice){
 
@@ -113,6 +83,7 @@ choicesbox.appendChild(scissors);
 
 
 rock.addEventListener("click", () => {
+    if(replay.hasChildNodes()){return;}
     humanChoice = "rock";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
@@ -120,6 +91,7 @@ rock.addEventListener("click", () => {
 });
 
 paper.addEventListener("click", () => {
+    if(replay.hasChildNodes()){return;}
     humanChoice = "paper";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
@@ -127,6 +99,7 @@ paper.addEventListener("click", () => {
 });
 
 scissors.addEventListener("click", () => {
+    if(replay.hasChildNodes()){return;}
     humanChoice = "scissors";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
