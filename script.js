@@ -50,7 +50,7 @@ function playRound(humanChoice, computerChoice){
 
         // Case if both have same choice
         if(humanChoice === computerChoice){
-            console.log("It's a tie! You both chose " + humanChoice + ".");
+            text.textContent = ("It's a tie! You both chose " + humanChoice + ".");
         }
 
         // Cases if human beats computer
@@ -58,26 +58,24 @@ function playRound(humanChoice, computerChoice){
                 humanChoice === "scissors" && computerChoice === "paper" ||
                 humanChoice === "paper" && computerChoice === "rock"){
 
-                console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+                text.textContent = ("You win! " + humanChoice + " beats " + computerChoice + ".");
                 humanScore++;
 
         }
 
         // Case if computer beats human
         else{
-            console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
+            text.textContent =("You lose! " + computerChoice + " beats " + humanChoice + ".");
             computerScore++;
         }
 
         if(humanScore === 5){
-        console.log("Human wins with a score of " + humanScore + ":" + computerScore + "!");
-        humanScore = 0;
-        computerScore = 0;
+        text.textContent = ("Human wins with a score of " + humanScore + ":" + computerScore + "!");
+        replay.appendChild(playAgain);
     }
     else if(computerScore === 5){
-        console.log("Computer wins with a score of " + computerScore + ":" + humanScore + "!");
-        humanScore = 0;
-        computerScore = 0;
+        text.textContent = ("Computer wins with a score of " + computerScore + ":" + humanScore + "!");
+        replay.appendChild(playAgain);
     }
     }
 
@@ -91,6 +89,15 @@ let computerChoice = "";
 
 const choicesbox = document.querySelector("#choices");
 const results = document.querySelector("#results");
+const text = document.createElement("p");
+const gameResult = document.createElement("p");
+const playAgain = document.createElement("button");
+const replay = document.querySelector("#playAgain");
+playAgain.textContent = "Play Again?";
+
+text.textContent = "Ready to play? Choose your move!";
+results.appendChild(text);
+results.appendChild(gameResult);
 
 const rock = document.createElement("button");
 rock.textContent = "Rock";
@@ -109,17 +116,28 @@ rock.addEventListener("click", () => {
     humanChoice = "rock";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
+    gameResult.textContent = ("The current score is:\n Human: " + humanScore + " Computer: " + computerScore);
 });
 
 paper.addEventListener("click", () => {
     humanChoice = "paper";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
+    gameResult.textContent = ("The current score is:\n Human: " + humanScore + " Computer: " + computerScore);
 });
 
 scissors.addEventListener("click", () => {
     humanChoice = "scissors";
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
+    gameResult.textContent = ("The current score is:\n Human: " + humanScore + " Computer: " + computerScore);
 });
+
+playAgain.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    text.textContent = "Ready to play? Choose your move!";
+    gameResult.textContent = "";
+    playAgain.remove();
+})
 
