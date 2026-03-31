@@ -65,7 +65,7 @@ const playAgain = document.createElement("button");
 const replay = document.querySelector("#playAgain");
 playAgain.textContent = "Play Again?";
 
-text.textContent = "Ready to play? Choose your move!";
+text.textContent = "Ready to play? First to 5 wins. Choose your move!";
 results.appendChild(text);
 results.appendChild(gameResult);
 
@@ -109,7 +109,7 @@ scissors.addEventListener("click", () => {
 playAgain.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
-    text.textContent = "Ready to play? Choose your move!";
+    text.textContent = "Ready to play? First to 5 wins. Choose your move!";
     gameResult.textContent = "";
     playAgain.remove();
 })
